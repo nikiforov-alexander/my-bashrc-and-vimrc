@@ -59,7 +59,7 @@ abbreviate Crd -crdir_if_not_exists \|\| exit 1
 abbreviate Chd -check_if_dir_exists \|\| exit 1
 abbreviate Chf -check_if_file_exists \|\| exit 1
 "colorscheme
-colorscheme evening
+colorscheme mine
 "make comments grey
 hi Comment ctermfg=DarkGrey
 "tabs
