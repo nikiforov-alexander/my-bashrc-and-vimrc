@@ -1,0 +1,64 @@
+############################################################################
+#cr                                                                       
+#cr            (C) Copyright 1995-2007 The Board of Trustees of the            
+#cr                        University of Illinois                         
+#cr                         All Rights Reserved                           
+#cr                                                                       
+############################################################################
+
+############################################################################
+# RCS INFORMATION:
+#
+#       $RCSfile: .vmdrc,v $
+#       $Author: johns $        $Locker:  $                $State: Exp $
+#       $Revision: 1.9 $      $Date: 2007/01/12 20:12:44 $
+#
+############################################################################
+# DESCRIPTION:
+#
+# VMD startup script.  The commands here are executed as soon as VMD starts up
+############################################################################
+
+# turn on lights 0 and 1
+light 0 on
+light 1 on
+light 2 off
+light 3 off
+
+# position the stage and axes
+axes location lowerleft
+stage location off
+
+#menu display  on
+#menu graphics on
+# position and turn on menus
+menu main  move 395 30
+menu main      on
+#menu display  move 5 30
+#menu graphics move 395 500
+#menu color    move 125 225
+#menu files    move 125 325
+#menu labels   move 125 525
+#menu render   move 125 525
+
+after idle {
+	menu tkcon on
+    color Name Z pink
+    color Type Z pink
+}
+#menu color    on
+#menu labels   off
+#menu render   on
+#menu files    on
+#package require tkcon
+#tkcon show
+
+# start the scene a-rockin'
+# rock y by 1
+
+# User's default values for newly loaded molecules/reps, etc
+#  mol default color {colorID 5}
+#  mol default selection {name CA}
+#  mol modstyle 0 0 CPK 1.000000 0.300000 10.000000 10.000000
+#  mol default material {Transparent}
+
