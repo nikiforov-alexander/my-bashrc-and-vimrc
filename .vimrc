@@ -175,3 +175,7 @@ autocmd FileType tcl hi Identifier ctermfg=Blue
 "#                         #  directory
 let g:netrw_banner            = 0
 
+
+"#                          Now using F6 we can replace word unded cursor
+"
+:nnoremap <F6> :%s/\<<C-r><C-w>\>/
