@@ -88,6 +88,8 @@ fi
 ########################### rotational completion ########################### 
 bind '"\C-i" menu-complete'
 
+#                          functions 
+
 echo_var () {
     error_echo_var="echo_var error:"
     case $# in
@@ -96,6 +98,7 @@ echo_var () {
         *) echo $error_echo_var too many args: $@ && return 1 ;;
     esac
 } 
+
 set_java_environment_bashrc () {
     #export JAVA_HOME="/home/nikiforo/bin/jre1.8.0_73"
     export JAVA_HOME="/home/nikiforo/src/jdk1.8.0_73"
@@ -103,27 +106,37 @@ set_java_environment_bashrc () {
     export PATH="$PATH:$JAVA_HOME/bin"
     echo JAVA_HOME is $JAVA_HOME
 }
+
 add_eclipse_to_path () {
     export PATH="$PATH:/home/nikiforo/bin/eclipse/java-mars/eclipse/eclipse"
     which eclipse 
 }
+
 source_aliases_bashrc () {
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 }
+
 set_git_vars () { 
     export GIT_EDITOR=vim
     echo_var GIT_EDITOR 
 } 
 
+cd () {
+    builtin cd "$@" && ] 
+}
+#                            body                           #   
 
 echo "cd works with listing"
+
 set_java_environment_bashrc
+
 add_eclipse_to_path
+
 source_aliases_bashrc
-function cd {
- builtin cd "$@" && ] 
-}
+
 set_git_vars
+
+#                            end                            #   
 
