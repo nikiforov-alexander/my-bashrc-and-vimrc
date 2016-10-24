@@ -148,5 +148,7 @@ source_aliases_bashrc
 set_git_vars
 
 set_MY_vars_src_bin_dir_etc 
+
+cd $HOME
 #                            end                            #   
 
