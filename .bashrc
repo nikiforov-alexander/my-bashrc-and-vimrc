@@ -126,6 +126,15 @@ set_git_vars () {
 cd () {
     builtin cd "$@" && ] 
 }
+
+set_MY_vars_src_bin_dir_etc () { 
+    export MY_BIN_DIR=$HOME/bin
+    export MY_SRC_DIR=$HOME/src
+    export MY_TMP_DIR=$HOME/tmp
+    echo_var MY_BIN_DIR
+    echo_var MY_SRC_DIR
+    echo_var MY_TMP_DIR
+} 
 #                            body                           #   
 
 echo "cd works with listing"
@@ -138,5 +147,6 @@ source_aliases_bashrc
 
 set_git_vars
 
+set_MY_vars_src_bin_dir_etc 
 #                            end                            #   
 
