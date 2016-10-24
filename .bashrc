@@ -84,13 +84,10 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-########################### java try ########################### 
-#export java_home=/usr/lib/jvm/java-1.6.0-openjdk-amd64/jre/lib/i386
+
 ########################### rotational completion ########################### 
 bind '"\C-i" menu-complete'
-########################### texlive source ########################### 
-#source ~/src/tex-live/global-vars-for-tex-live-installation.sh
-#                           set JAVA_HOME #                           
+
 set_java_environment_bashrc () {
     #export JAVA_HOME="/home/nikiforo/bin/jre1.8.0_73"
     export JAVA_HOME="/home/nikiforo/src/jdk1.8.0_73"
