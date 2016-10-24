@@ -346,6 +346,11 @@ export_global_vars_bashrc () {
        export JAVA_BINDIR="$JAVA_HOME/bin"
        
     } 
+
+    export_include_bash_scripts () { 
+        export INCLUDE_BASH_SCRIPTS_PATH=$s  
+        echo INCLUDE_BASH_SCRIPTS_PATH is $INCLUDE_BASH_SCRIPTS_PATH
+    } 
     #                         #  body #                         #  
     export_f_to_fsnfs_users_nikiforo
     export_library_paths
@@ -363,6 +368,8 @@ export_global_vars_bashrc () {
     source_different_paths_for_diff_progs_bashrc
     export_MOPAC_variables_bashrc
     export_java_vars_jdk_to_run_idea
+
+    export_include_bash_scripts
     #                         #  end  #                         #   
     echo $FUNCNAME ends && return 0
 } 
