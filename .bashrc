@@ -88,6 +88,14 @@ fi
 ########################### rotational completion ########################### 
 bind '"\C-i" menu-complete'
 
+echo_var () {
+    error_echo_var="echo_var error:"
+    case $# in
+        0) echo $error_echo_var has to be at least one argument && return 1 ;;
+        1) eval "echo var $1 is \$$1" ;;
+        *) echo $error_echo_var too many args: $@ && return 1 ;;
+    esac
+} 
 set_java_environment_bashrc () {
     #export JAVA_HOME="/home/nikiforo/bin/jre1.8.0_73"
     export JAVA_HOME="/home/nikiforo/src/jdk1.8.0_73"
@@ -104,6 +112,10 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 }
+set_git_vars () { 
+    export GIT_EDITOR=vim
+    echo_var GIT_EDITOR 
+} 
 
 
 echo "cd works with listing"
@@ -113,6 +125,5 @@ source_aliases_bashrc
 function cd {
  builtin cd "$@" && ] 
 }
+set_git_vars
 
-#                         #  set GIT_EDITOR #                         #  
-export GIT_EDITOR=vim
