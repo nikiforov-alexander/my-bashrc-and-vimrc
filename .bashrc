@@ -131,6 +131,11 @@ set_MY_vars_src_bin_dir_etc () {
     echo_var MY_SRC_DIR
     echo_var MY_TMP_DIR
 } 
+
+set_include_bash_scripts () { 
+    export INCLUDE_BASH_SCRIPTS_PATH="$HOME/helpful-bash-scripts/include_bash_scripts"
+    echo_var INCLUDE_BASH_SCRIPTS_PATH
+} 
 #                            body                           #   
 
 echo "cd works with listing"
@@ -148,6 +153,8 @@ cd () {
 set_git_vars
 
 set_MY_vars_src_bin_dir_etc 
+
+set_include_bash_scripts
 
 cd $HOME
 #                            end                            #   
