@@ -99,6 +99,15 @@ echo_var () {
     esac
 } 
 
+set_global_export_variable_with_file_check () {
+    if [ ! -e $2 ] ; then
+        echo file $2 does not exist
+        return 1
+    fi
+    eval "export $1=$2" 
+    echo "export $1=$2"
+} 
+
 set_java_environment_bashrc () {
     #export JAVA_HOME="/home/nikiforo/bin/jre1.8.0_73"
     export JAVA_HOME="/home/nikiforo/src/jdk1.8.0_73"
@@ -127,6 +136,9 @@ set_MY_vars_src_bin_dir_etc () {
     export MY_BIN_DIR=$HOME/bin
     export MY_SRC_DIR=$HOME/src
     export MY_TMP_DIR=$HOME/tmp
+    set_global_export_variable_with_file_check \
+        MY_SCRIPTS_DIR \
+        $HOME/helpful-bash-scripts
     echo_var MY_BIN_DIR
     echo_var MY_SRC_DIR
     echo_var MY_TMP_DIR
