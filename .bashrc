@@ -123,10 +123,6 @@ set_git_vars () {
     echo_var GIT_EDITOR 
 } 
 
-cd () {
-    builtin cd "$@" && ] 
-}
-
 set_MY_vars_src_bin_dir_etc () { 
     export MY_BIN_DIR=$HOME/bin
     export MY_SRC_DIR=$HOME/src
@@ -144,6 +140,10 @@ set_java_environment_bashrc
 add_eclipse_to_path
 
 source_aliases_bashrc
+
+cd () {
+    builtin cd "$@" && ] 
+}
 
 set_git_vars
 
