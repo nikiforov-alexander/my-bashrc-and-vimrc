@@ -98,7 +98,6 @@ echo_var () {
         *) echo $error_echo_var too many args: $@ && return 1 ;;
     esac
 } 
-
 set_global_export_variable_with_file_check () {
     if [ ! -e $2 ] ; then
         echo file $2 does not exist
@@ -108,11 +107,6 @@ set_global_export_variable_with_file_check () {
     echo "export $1=$2"
 } 
 
-source_aliases_bashrc () {
-    if [ -f ~/.bash_aliases ]; then
-        . ~/.bash_aliases
-    fi
-}
 
 set_git_vars () { 
     export GIT_EDITOR=vim
@@ -142,16 +136,14 @@ set_include_bash_scripts () {
     export INCLUDE_BASH_SCRIPTS_PATH="$HOME/helpful-bash-scripts/include_bash_scripts"
     echo_var INCLUDE_BASH_SCRIPTS_PATH
 } 
-#                            body                           #   
 
-echo "cd works with listing"
-
-
-source_aliases_bashrc
-
-cd () {
-    builtin cd "$@" && ] 
+source_aliases_bashrc () {
+    if [ -f ~/.bash_aliases ]; then
+        . ~/.bash_aliases
+    fi
 }
+
+#                            body                           #   
 
 set_git_vars
 
@@ -160,6 +152,14 @@ set_MY_vars_src_bin_dir_etc
 set_java_environment_bashrc
 
 set_include_bash_scripts
+
+source_aliases_bashrc
+
+echo 'cd works with listing'
+
+cd () {
+    builtin cd "$@" && ] 
+}
 
 cd $HOME
 #                            end                            #   
