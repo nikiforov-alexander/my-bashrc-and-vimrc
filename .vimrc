@@ -179,3 +179,8 @@ let g:netrw_banner            = 0
 "#                          Now using F6 we can replace word unded cursor
 "
 :nnoremap <F6> :%s/\<<C-r><C-w>\>/
+
+"#                          turn off this crazy beep sound
+"
+"http://www.cyberciti.biz/faq/how-to-linux-disable-or-turn-off-beep-sound-for-terminal/
+set vb
