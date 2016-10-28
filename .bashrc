@@ -108,23 +108,10 @@ set_global_export_variable_with_file_check () {
     echo "export $1=$2"
 } 
 
-set_java_environment_bashrc () {
-    #export JAVA_HOME="/home/nikiforo/bin/jre1.8.0_73"
-    export JAVA_HOME="/home/nikiforo/src/jdk1.8.0_73"
-    export JRE_HOME=$JAVA_HOME
-    export PATH="$PATH:$JAVA_HOME/bin"
-    echo JAVA_HOME is $JAVA_HOME
-}
-
-add_eclipse_to_path () {
-    export PATH="$PATH:/home/nikiforo/bin/eclipse/java-mars/eclipse/eclipse"
-    which eclipse 
-}
-
 source_aliases_bashrc () {
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
+    if [ -f ~/.bash_aliases ]; then
+        . ~/.bash_aliases
+    fi
 }
 
 set_git_vars () { 
@@ -144,6 +131,13 @@ set_MY_vars_src_bin_dir_etc () {
     echo_var MY_TMP_DIR
 } 
 
+set_java_environment_bashrc () {
+    export JAVA_HOME="$MY_BIN_DIR/java/latest"
+    export JRE_HOME=$JAVA_HOME
+    export PATH="$PATH:$JAVA_HOME/bin"
+    echo JAVA_HOME is $JAVA_HOME
+}
+
 set_include_bash_scripts () { 
     export INCLUDE_BASH_SCRIPTS_PATH="$HOME/helpful-bash-scripts/include_bash_scripts"
     echo_var INCLUDE_BASH_SCRIPTS_PATH
@@ -152,9 +146,6 @@ set_include_bash_scripts () {
 
 echo "cd works with listing"
 
-set_java_environment_bashrc
-
-add_eclipse_to_path
 
 source_aliases_bashrc
 
@@ -165,6 +156,8 @@ cd () {
 set_git_vars
 
 set_MY_vars_src_bin_dir_etc 
+
+set_java_environment_bashrc
 
 set_include_bash_scripts
 
