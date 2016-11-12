@@ -1,8 +1,8 @@
 " " is comment
 " backup
 set backup
-set directory=/home/nikiforo/tmp
-set backupdir=/home/nikiforo/tmp/backup
+set directory=~/tmp
+set backupdir=~/tmp/backup
 "save ver stuff
 "set patchmode=.clean
 "let savevers_dirs = &backupdir
