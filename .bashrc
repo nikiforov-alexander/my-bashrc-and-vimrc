@@ -140,6 +140,11 @@ set_glassfish_path () { _
     echo_var PATH
 } 
 
+set_maven_path () { _
+    export PATH=$PATH:$MY_BIN_DIR/maven/latest/bin
+    echo_var PATH
+} 
+
 set_include_bash_scripts () { 
     export INCLUDE_BASH_SCRIPTS_PATH="$HOME/helpful-bash-scripts/include_bash_scripts"
     echo_var INCLUDE_BASH_SCRIPTS_PATH
@@ -162,6 +167,8 @@ set_MY_vars_src_bin_dir_etc
 set_java_environment_bashrc
 
 set_glassfish_path
+
+set_maven_path
 
 set_include_bash_scripts
 
