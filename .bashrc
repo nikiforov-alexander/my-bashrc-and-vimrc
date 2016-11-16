@@ -150,6 +150,11 @@ set_include_bash_scripts () {
     echo_var INCLUDE_BASH_SCRIPTS_PATH
 } 
 
+set_editor_for_cheat_program () { _
+    export EDITOR=vim
+    echo_var EDITOR
+} 
+
 source_aliases_bashrc () {
     if [ -f ~/.bash_aliases ]; then
         . ~/.bash_aliases
@@ -171,6 +176,8 @@ set_glassfish_path
 set_maven_path
 
 set_include_bash_scripts
+
+set_editor_for_cheat_program
 
 source_aliases_bashrc
 
