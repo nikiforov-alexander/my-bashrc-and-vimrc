@@ -107,6 +107,9 @@ set_global_export_variable_with_file_check () {
     echo "export $1=$2"
 } 
 
+set_path_myself () { _
+    export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/games:/usr/local/games
+} 
 
 set_git_vars () { 
     export GIT_EDITOR=vim
@@ -132,6 +135,11 @@ set_java_environment_bashrc () {
     echo JAVA_HOME is $JAVA_HOME
 }
 
+set_glassfish_path () { _
+    export PATH=$PATH:$MY_BIN_DIR/glassfish4/latest/bin
+    echo_var PATH
+} 
+
 set_include_bash_scripts () { 
     export INCLUDE_BASH_SCRIPTS_PATH="$HOME/helpful-bash-scripts/include_bash_scripts"
     echo_var INCLUDE_BASH_SCRIPTS_PATH
@@ -145,11 +153,15 @@ source_aliases_bashrc () {
 
 #                            body                           #   
 
+set_path_myself
+
 set_git_vars
 
 set_MY_vars_src_bin_dir_etc 
 
 set_java_environment_bashrc
+
+set_glassfish_path
 
 set_include_bash_scripts
 
