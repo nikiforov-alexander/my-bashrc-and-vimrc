@@ -58,7 +58,12 @@ fi
 #unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
-PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;31m\]\u@home \[\033[01;33m\]:)'; fi)\[\033[01;34m\] \W \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")\\$\[\033[00m\] "
+PS1="$(if [[ ${EUID} == 0 ]]; \
+    then echo '\[\033[01;31m\]\h'; \
+    else echo '\[\033[01;31m\]\u@home \[\033[01;33m\]:)'; \
+        fi)\[\033[01;34m\] \W \n\$([[ \$? != 0 ]] && \
+        echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")\\$\[\033[00m\] "
+
 #PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;31m\]\u@\h \[\033[01;33m\]:)'; fi)\[\033[01;34m\] \W \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")\\$\[\033[00m\] "
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
