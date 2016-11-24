@@ -112,7 +112,7 @@ set_global_export_variable_with_file_check () {
     echo "export $1=$2"
 } 
 
-set_path_myself () { _
+set_path_myself () { 
     export PATH=$HOME/bin:/usr/local/bin:/usr/bin:/bin:/usr/games:/usr/local/games
 } 
 
@@ -140,12 +140,12 @@ set_java_environment_bashrc () {
     echo JAVA_HOME is $JAVA_HOME
 }
 
-set_glassfish_path () { _
+set_glassfish_path () { 
     export PATH=$PATH:$MY_BIN_DIR/glassfish4/latest/bin
     echo_var PATH
 } 
 
-set_maven_path () { _
+set_maven_path () { 
     export PATH=$PATH:$MY_BIN_DIR/maven/latest/bin
     echo_var PATH
 } 
@@ -155,7 +155,7 @@ set_include_bash_scripts () {
     echo_var INCLUDE_BASH_SCRIPTS_PATH
 } 
 
-set_editor_for_cheat_program () { _
+set_editor_for_cheat_program () { 
     export EDITOR=vim
     echo_var EDITOR
 } 
@@ -186,12 +186,17 @@ set_editor_for_cheat_program
 
 source_aliases_bashrc
 
-echo 'cd works with listing'
-
-cd () {
-    builtin cd "$@" && ] 
+function cd {
+    [ $# -ne 1 ] && echo cannot cd to many args : $@ && return 1 
+    terminal_width=`tput cols`
+    if [ $terminal_width -ge 80 ] ; then 
+        builtin cd "$@" && ]
+    else
+        builtin cd "$@" && ls -1
+    fi
 }
+echo "cd works with listing"
 
-cd $HOME
+#cd $HOME
 #                            end                            #   
 
