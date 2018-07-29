@@ -162,10 +162,23 @@ set_editor_for_cheat_program () {
 
 source_aliases_bashrc () {
     if [ -f ~/.bash_aliases ]; then
+        echo source .bash_aliases
         . ~/.bash_aliases
+    else
+        echo .bash_aliases does not exist
+    fi
+
+    if [ -f $MY_SCRIPTS_DIR/aliases.sh ] ; then
+        echo source aliases.sh
+        . $MY_SCRIPTS_DIR/aliases.sh 
+    else
+        echo aliases.sh does not exist
     fi
 }
 
+set_docker_host_to_win_daemon () { _
+    export DOCKER_HOST=localhost:2375
+} 
 #                            body                           #   
 
 set_path_myself
